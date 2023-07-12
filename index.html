@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Calculator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>this is my first app</h1>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="result" readonly /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="updateResult('7')" /></td>
+            <td><input type="button" value="8" onclick="updateResult('8')" /></td>
+            <td><input type="button" value="9" onclick="updateResult('9')" /></td>
+            <td><input type="button" value="+" onclick="updateResult('+')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="updateResult('4')" /></td>
+            <td><input type="button" value="5" onclick="updateResult('5')" /></td>
+            <td><input type="button" value="6" onclick="updateResult('6')" /></td>
+            <td><input type="button" value="-" onclick="updateResult('-')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="updateResult('1')" /></td>
+            <td><input type="button" value="2" onclick="updateResult('2')" /></td>
+            <td><input type="button" value="3" onclick="updateResult('3')" /></td>
+            <td><input type="button" value="*" onclick="updateResult('*')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="updateResult('0')" /></td>
+            <td><input type="button" value="." onclick="updateResult('.')" /></td>
+            <td><input type="button" value="=" onclick="calculate()" /></td>
+            <td><input type="button" value="/" onclick="updateResult('/')" /></td>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="button" value="Clear" onclick="clearResult()" /></td>
+        </tr>
+    </table>
+
+    <script>
+        function updateResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculate() {
+            var result = eval(document.getElementById('result').value);
+            document.getElementById('result').value = result;
+        }
+    </script>
 </body>
 </html>
